@@ -59,19 +59,16 @@ const Quiz = () => {
 
     // Send answer to the backend
     axios
-      .post("http://localhost:8000/api/quiz", {
+      .post("http://localhost:8000/api/questions/custom_create/", {
         question: quizData[currentIndex].question,
-        userAnswer: userAnswer.trim(),
-        correctAnswer: quizData[currentIndex].answer,
-        isCorrect: userAnswer.trim().toLowerCase() === quizData[currentIndex].answer.toLowerCase(),
+        answer: userAnswer.trim(),
       })
       .then((response) => {
         console.log("Answer sent successfully:", response.data);
       })
       .catch((error) => {
         console.error("Error sending answer:", error);
-      })
-      console.log(userAnswer);
+      });
 
     // Check if the answer is correct and update the score
     if (userAnswer.trim().toLowerCase() === quizData[currentIndex].answer.toLowerCase()) {

@@ -11,4 +11,7 @@ docker-compose exec django python manage.py migrate
 # Create a Superuser (Optional)
 docker-compose exec django python manage.py createsuperuser
 
+# Enter frontend
+Open 'http://localhost:3000/' on your browser
+
 ```
